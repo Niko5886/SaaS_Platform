@@ -35,7 +35,10 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--body-gray);
-  font-family: "Quantico", "Arial Narrow", sans-serif;
+  /* Latin glyphs render in Quantico; Cyrillic (BG) falls through to
+     Tektur — a squarish techno face that matches Quantico's look,
+     since Quantico ships no Cyrillic. */
+  font-family: "Quantico", "Tektur", "Arial Narrow", sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
