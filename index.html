@@ -75,9 +75,9 @@
         </a>
 
         <nav class="nav__links" aria-label="Primary">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact us</a>
+          <a href="#home" data-i18n="nav.home">Home</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#contact" data-i18n="nav.contact">Contact us</a>
         </nav>
 
         <div class="nav__right">
@@ -105,7 +105,7 @@
                 stroke-width="1.4"
               />
             </svg>
-            <span>Contact us</span>
+            <span data-i18n="nav.contact">Contact us</span>
           </a>
 
           <!-- Language switcher (BG | EN) -->
@@ -143,9 +143,9 @@
 
       <!-- Mobile stacked menu (toggled by the hamburger) -->
       <nav class="nav__menu" id="mobile-menu" aria-label="Mobile">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact us</a>
+        <a href="#home" data-i18n="nav.home">Home</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#contact" data-i18n="nav.contact">Contact us</a>
       </nav>
 
       <!-- Headline — 6-line staircase -->
@@ -160,7 +160,7 @@
 
       <!-- CTA — aligned under the indented lines -->
       <div class="hero__cta">
-        <a class="btn" href="#">Get started</a>
+        <a class="btn" href="#" data-i18n="hero.cta">Get started</a>
       </div>
     </section>
 
@@ -168,13 +168,16 @@
     <section class="about" id="about">
       <div class="about__left">
         <h2 class="about__title">
-          <span class="about__line">About</span>
-          <span class="about__line about__line--indent about__line--accent">
+          <span class="about__line" data-i18n="about.about">About</span>
+          <span
+            class="about__line about__line--indent about__line--accent"
+            data-i18n="about.business"
+          >
             Business
           </span>
         </h2>
 
-        <p class="about__text">
+        <p class="about__text" data-i18n="about.p">
           Targo builds the testing infrastructure modern teams rely on. From
           automated pipelines to full-scale QA audits, we make sure your
           software ships fast and breaks nothing. Hundreds of releases, zero
@@ -182,7 +185,7 @@
         </p>
 
         <div class="about__cta">
-          <a class="btn" href="#">Learn more</a>
+          <a class="btn" href="#" data-i18n="about.learn">Learn more</a>
         </div>
       </div>
 
