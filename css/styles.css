@@ -168,9 +168,16 @@ button {
   white-space: nowrap;
 }
 
-/* Right-aligned contact button (desktop) */
-.nav__contact {
+/* Right-side cluster: contact + language switcher (+ burger on mobile) */
+.nav__right {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+/* Contact button */
+.nav__contact {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -199,6 +206,49 @@ button {
 
 .nav__mail {
   color: #fff;
+}
+
+/* ---- Language switcher (BG | EN) ---- */
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang__btn {
+  background: transparent;
+  border: none;
+  padding: 2px 1px 4px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: clamp(12px, 2vw, 14px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.lang__btn:hover {
+  color: #fff;
+}
+
+.lang__btn.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.lang__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.lang__sep {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 400;
+  user-select: none;
 }
 
 /* Hamburger + mobile menu are hidden on desktop */
@@ -397,7 +447,6 @@ button {
 
   .nav__burger {
     display: flex;
-    margin-left: auto;
   }
 
   .nav__menu.is-open {
