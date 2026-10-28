@@ -427,6 +427,39 @@ button {
 }
 
 /* ============================================================
+   Motion — scroll reveal (progressive enhancement)
+   .reveal elements only hide once reveal.js flags <html> ready,
+   then fade + slide in when observed. Stagger lists with --i.
+   Without JS (or with reduced motion) everything stays visible.
+   ============================================================ */
+
+.reveal {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal {
+    transition: none;
+  }
+}
+
+/* ============================================================
    About — extended blocks (Mission / Stats / Partners / Closing)
    Shared left indent keeps them aligned with the hero + about.
    ============================================================ */
