@@ -800,4 +800,49 @@ button {
     padding: 0 20px 28px 20px;
     font-size: clamp(34px, 10vw, 56px);
   }
+
+  /* Extended about blocks: tighter side padding + smaller indents */
+  .mission,
+  .stats,
+  .partners,
+  .closing {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mission__line--indent,
+  .stats__line--indent,
+  .partners__line--indent {
+    margin-left: 12vw;
+  }
+
+  .mission__text,
+  .badges,
+  .partners__text {
+    margin-left: 12vw;
+  }
+
+  /* Stats: 4 → 2 columns with a hairline only between columns */
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+  }
+
+  .stat {
+    padding-left: clamp(14px, 4vw, 24px);
+  }
+
+  .stat:nth-child(odd) {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  /* Closing: pull the big indent in */
+  .closing__line--indent {
+    margin-left: 14vw;
+  }
+
+  .closing__cta {
+    padding-left: 14vw;
+  }
 }
