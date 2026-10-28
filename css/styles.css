@@ -574,6 +574,76 @@ button {
   font-size: clamp(11px, 1.4vw, 13px);
 }
 
+/* ---- Block C — Partners ---- */
+
+.partners {
+  background: #f7f6f8;
+  padding: clamp(50px, 8vw, 110px) clamp(20px, 6vw, 80px)
+    clamp(60px, 9vw, 120px) clamp(20px, 9vw, 118px);
+}
+
+.partners__title {
+  font-size: clamp(30px, 5.5vw, 60px);
+}
+
+.partners__line {
+  display: block;
+}
+
+.partners__line--indent {
+  margin-left: min(160px, 18vw);
+}
+
+.partners__line--accent {
+  color: var(--accent);
+}
+
+.partners__text {
+  max-width: 520px;
+  margin: 26px 0 0 min(160px, 18vw);
+  font-size: clamp(14px, 1.6vw, 17px);
+  line-height: 1.7;
+  color: var(--body-gray);
+}
+
+.partners__row {
+  list-style: none;
+  margin: clamp(40px, 5vw, 64px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+/* Grayscale wordmarks that bloom to the accent on hover */
+.partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--heading);
+  opacity: 0.5;
+  filter: grayscale(1);
+  transition: color 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+}
+
+.partner:hover {
+  color: var(--accent);
+  opacity: 1;
+  filter: none;
+}
+
+.partner__glyph {
+  flex: 0 0 auto;
+  color: inherit;
+}
+
+.partner__name {
+  font-weight: 700;
+  font-size: clamp(15px, 2vw, 20px);
+  letter-spacing: 0.02em;
+}
+
 /* ============================================================
    Responsive — mobile (<= 700px)
    ============================================================ */
