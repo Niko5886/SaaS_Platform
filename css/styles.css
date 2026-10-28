@@ -511,6 +511,69 @@ button {
   white-space: nowrap;
 }
 
+/* ---- Block B — Achievements / Stats ---- */
+
+.stats {
+  background: #f7f6f8;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 6vw, 80px)
+    clamp(60px, 9vw, 120px) clamp(20px, 9vw, 118px);
+}
+
+.stats__title {
+  font-size: clamp(30px, 5.5vw, 60px);
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.stats__line {
+  display: block;
+}
+
+.stats__line--indent {
+  margin-left: min(160px, 18vw);
+}
+
+.stats__line--accent {
+  color: var(--accent);
+}
+
+.stats__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Hairline rule separates each figure from the next */
+.stat {
+  padding: 8px clamp(14px, 2vw, 32px);
+  border-left: 1px solid rgba(43, 48, 51, 0.14);
+}
+
+.stat:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.stat__num {
+  display: block;
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1;
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: -0.01em;
+}
+
+.stat__label {
+  display: block;
+  margin-top: 14px;
+  color: var(--body-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: clamp(11px, 1.4vw, 13px);
+}
+
 /* ============================================================
    Responsive — mobile (<= 700px)
    ============================================================ */
