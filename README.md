@@ -13,7 +13,8 @@ A hand-built, dependency-free one-page site — a full-viewport **video hero** a
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Google Fonts](https://img.shields.io/badge/Quantico-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white)
+![Google Fonts](https://img.shields.io/badge/Quantico_%2B_Tektur-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-BG%20%7C%20EN-15BCDF?style=for-the-badge)
 
 ![Build](https://img.shields.io/badge/build-none%20·%20static-success)
 ![Pages](https://img.shields.io/badge/single--page-index.html-informational)
@@ -43,10 +44,11 @@ The flow: a **video hero** that fades cleanly behind a staircase headline, then 
 | 🧩 | **Expanded about** | Mission statement, a live **stats** band, grayscale **partner** wordmarks and a **resources + join** closing — all sharing the staircase rhythm |
 | ✨ | **Scroll-reveal** | Blocks fade and rise into view via `IntersectionObserver`, staggered, and fully stilled under `prefers-reduced-motion` |
 | 🔁 | **Resilient autoplay** | Videos retry `play()` every second and on first interaction — always muted, rejections swallowed |
+| 🌐 | **Bilingual BG / EN** | A top-right switcher swaps every string live, re-renders the staircase headlines, remembers the choice in `localStorage` and updates `<html lang>` |
 | 🍔 | **Adaptive navigation** | Desktop links + contact button swap for a hamburger-toggled stacked menu below 700px |
-| 📱 | **Fully responsive** | CSS breakpoint at **700px** repositions the hero video, headline and navbar |
-| ⚡ | **Zero dependencies** | No framework, no bundler, no build — three files plus an inline SVG favicon |
-| 🔤 | **Custom typography** | The condensed techno display face *Quantico* (400 / 700) |
+| 📱 | **Fully responsive** | CSS breakpoint at **700px** repositions the hero video, headline, navbar and stats grid |
+| ⚡ | **Zero dependencies** | No framework, no bundler, no build — plain files plus an inline SVG favicon |
+| 🔤 | **Custom typography** | The condensed techno display face *Quantico* (400 / 700), with *Tektur* covering Cyrillic so Bulgarian keeps the same squared look |
 | 🔍 | **SEO & social ready** | Open Graph + Twitter card meta, `theme-color`, and a crisp SVG favicon |
 
 ---
@@ -55,8 +57,8 @@ The flow: a **video hero** that fades cleanly behind a staircase headline, then 
 
 - **HTML5** — semantic, accessible single-page markup
 - **CSS3** — custom-property design tokens, `clamp()` fluid type, `clip-path` chamfered buttons, `mix-blend-mode` tinting, `100svh` hero
-- **Vanilla JavaScript (IIFE-scoped)** — resilient video autoplay (retry + gesture fallback) and the mobile menu toggle
-- **[Quantico](https://fonts.google.com/specimen/Quantico)** via Google Fonts (weights 400 + 700)
+- **Vanilla JavaScript (IIFE-scoped)** — resilient video autoplay (retry + gesture fallback), a bilingual **BG / EN** i18n engine with `localStorage` persistence, `IntersectionObserver` scroll-reveal, and the mobile menu toggle
+- **[Quantico](https://fonts.google.com/specimen/Quantico)** (Latin) + **[Tektur](https://fonts.google.com/specimen/Tektur)** (Cyrillic) via Google Fonts — weights 400 + 700
 - **CDN media** — the hero & about videos stream from a CDN by absolute URL
 
 ---
@@ -116,7 +118,7 @@ Design tokens are defined as CSS custom properties on `:root`:
 | `--nav-link` | `#3a3a3a` | Navigation links |
 | `--body-gray` | `#6b6f72` | Body copy |
 | `--ink` | `#1a1c1e` | Button text / mobile menu |
-| **Font** | *Quantico*, Arial Narrow | Display + UI |
+| **Font** | *Quantico* (Latin) · *Tektur* (Cyrillic) · Arial Narrow | Display + UI |
 
 Convention: **uppercase headings** with tight tracking (`0.01em`) and leading (`0.98`), accent words in cyan.
 
@@ -126,6 +128,8 @@ Convention: **uppercase headings** with tight tracking (`0.01em`) and leading (`
 
 - Decorative videos and the scrim are marked `aria-hidden`
 - The hamburger exposes `aria-expanded` / `aria-controls`, and its label toggles open/close
+- The language switcher is a labelled button group; the active language carries `aria-current` and the document's `lang` updates on switch
+- Scroll-reveal is a progressive enhancement — content stays fully visible without JS and animations stop under `prefers-reduced-motion`
 - Semantic landmarks throughout (`header`, `nav`, `section`, `h1`/`h2`)
 - Fluid type and a clean 700px breakpoint keep the layout legible down to small screens
 
