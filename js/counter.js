@@ -1,15 +1,16 @@
 /* ============================================================
    Targo — stat count-up
-   Each [data-count] figure eases from 1 up to its target the
-   first time it scrolls into view. Prefix / suffix / decimals
-   are preserved, targets of 0 stay static, reduced motion and
-   browsers without IntersectionObserver keep the printed value.
+   Each [data-count] figure eases to its target the first time
+   it scrolls into view. A custom data-count-from lets a figure
+   count up (default from 1) or down (e.g. from 24 to 0). Prefix
+   / suffix / decimals are preserved; reduced motion and browsers
+   without IntersectionObserver keep the printed value.
    ============================================================ */
 (function () {
   "use strict";
 
   var DURATION = 1800;
-  var START = 1;
+  var DEFAULT_FROM = 1;
 
   var nums = Array.prototype.slice.call(
     document.querySelectorAll(".stat__num[data-count]")
@@ -19,6 +20,7 @@
   function meta(el) {
     return {
       target: parseFloat(el.getAttribute("data-count")),
+      from: parseFloat(el.getAttribute("data-count-from") || DEFAULT_FROM),
       decimals: parseInt(el.getAttribute("data-decimals") || "0", 10),
       prefix: el.getAttribute("data-prefix") || "",
       suffix: el.getAttribute("data-suffix") || ""
@@ -38,18 +40,19 @@
     var m = meta(el);
     if (isNaN(m.target)) return;
 
-    // Nothing to count toward zero — just settle on it.
-    if (m.target <= START) {
+    // Already at the target (from === to) — just settle on it.
+    if (m.from === m.target) {
       render(el, m.target, m);
       return;
     }
 
     var startTime = null;
 
+    // Works both ways: (target - from) is negative for a count-down.
     function tick(now) {
       if (startTime === null) startTime = now;
       var t = Math.min((now - startTime) / DURATION, 1);
-      render(el, START + (m.target - START) * easeOut(t), m);
+      render(el, m.from + (m.target - m.from) * easeOut(t), m);
       if (t < 1) {
         requestAnimationFrame(tick);
       } else {
@@ -70,7 +73,7 @@
   // Prime to the start value so a fast scroll never flashes the final figure.
   nums.forEach(function (el) {
     var m = meta(el);
-    if (!isNaN(m.target) && m.target > START) render(el, START, m);
+    if (!isNaN(m.target) && m.from !== m.target) render(el, m.from, m);
   });
 
   var observer = new IntersectionObserver(
