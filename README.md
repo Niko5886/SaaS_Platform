@@ -6,7 +6,7 @@
 
 ### A cinematic landing page for a modern QA & testing-infrastructure brand
 
-A hand-built, dependency-free one-page site — a full-viewport **video hero** and a focused **about** section, wrapped in a precise, motion-aware design system. Plain HTML, CSS and JavaScript: no framework, no bundler, no build step, so it clones and runs anywhere in seconds.
+A hand-built, dependency-free one-page site — a full-viewport **video hero** and a rich, multi-block **about** experience (mission, live stats, partners and a closing call-to-action), wrapped in a precise, motion-aware design system. Plain HTML, CSS and JavaScript: no framework, no bundler, no build step, so it clones and runs anywhere in seconds.
 
 <br />
 
@@ -26,9 +26,9 @@ A hand-built, dependency-free one-page site — a full-viewport **video hero** a
 
 ## 📖 Overview
 
-**Targo** is a conversion-focused landing page for a software **QA & testing-infrastructure** brand — _"scaling the platform for your business"_. The entire experience lives in three small files and leans on modern CSS (`clip-path` chamfers, `mix-blend-mode` tinting, fluid `clamp()` type, `100svh` layout) with a touch of vanilla JavaScript for resilient video autoplay and the mobile menu.
+**Targo** is a conversion-focused landing page for a software **QA & testing-infrastructure** brand — _"scaling the platform for your business"_. The experience lives in a handful of small files and leans on modern CSS (`clip-path` chamfers, `mix-blend-mode` tinting, fluid `clamp()` type, `100svh` layout) with a touch of vanilla JavaScript for resilient video autoplay, bilingual switching, scroll-reveal and the mobile menu.
 
-Two sections, zero clutter: a **video hero** that fades cleanly behind a staircase headline, and an **about** block with a cyan hue-tinted video flush to the screen edge.
+The flow: a **video hero** that fades cleanly behind a staircase headline, then an **about** area that opens with a cyan hue-tinted video and unfolds into **mission**, a **stats** band, a **partners** row and a **resources + join** closing — each scrolling into view.
 
 ---
 
@@ -40,6 +40,8 @@ Two sections, zero clutter: a **video hero** that fades cleanly behind a stairca
 | 🪜 | **Staircase headline** | Six-line uppercase headline with a stepped indent and a cyan accent closer (`BUSINESS`) |
 | 🔷 | **Chamfered CTAs** | `clip-path` cut-corner buttons with a cyan glow and a trailing accent rule — shared across both sections |
 | 🎨 | **Hue-tinted media** | A `#15BCDF` overlay in `mix-blend-mode: hue` recolours the about video toward the brand accent |
+| 🧩 | **Expanded about** | Mission statement, a live **stats** band, grayscale **partner** wordmarks and a **resources + join** closing — all sharing the staircase rhythm |
+| ✨ | **Scroll-reveal** | Blocks fade and rise into view via `IntersectionObserver`, staggered, and fully stilled under `prefers-reduced-motion` |
 | 🔁 | **Resilient autoplay** | Videos retry `play()` every second and on first interaction — always muted, rejections swallowed |
 | 🍔 | **Adaptive navigation** | Desktop links + contact button swap for a hamburger-toggled stacked menu below 700px |
 | 📱 | **Fully responsive** | CSS breakpoint at **700px** repositions the hero video, headline and navbar |
@@ -63,11 +65,13 @@ Two sections, zero clutter: a **video hero** that fades cleanly behind a stairca
 
 ```
 .
-├── index.html            # Markup for both sections (hero + about)
+├── index.html            # Markup: hero + about, mission, stats, partners, closing
 ├── css/
-│   └── styles.css        # Design tokens, layout & responsive rules
+│   └── styles.css        # Design tokens, layout, scroll-reveal & responsive rules
 ├── js/
-│   └── main.js           # Video autoplay retry + mobile menu
+│   ├── i18n.js           # BG / EN dictionary, switcher & persistence
+│   ├── main.js           # Video autoplay retry + mobile menu
+│   └── reveal.js         # IntersectionObserver scroll-reveal
 ├── docs/
 │   └── screenshots/      # README preview image
 └── favicon.svg           # Brand mark
