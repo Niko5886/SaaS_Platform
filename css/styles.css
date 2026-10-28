@@ -644,6 +644,81 @@ button {
   letter-spacing: 0.02em;
 }
 
+/* ---- Block D — Join CTA + Resources ---- */
+
+.closing {
+  background: linear-gradient(180deg, #f7f6f8 0%, #eef0f2 100%);
+  padding: clamp(60px, 9vw, 130px) clamp(20px, 6vw, 80px)
+    clamp(60px, 9vw, 120px) clamp(20px, 9vw, 118px);
+}
+
+/* Join band — the loudest closing beat */
+.closing__join {
+  padding-bottom: clamp(48px, 7vw, 90px);
+  border-bottom: 1px solid rgba(43, 48, 51, 0.14);
+}
+
+.closing__title {
+  font-size: clamp(36px, 7vw, 78px);
+}
+
+.closing__line {
+  display: block;
+}
+
+.closing__line--indent {
+  margin-left: min(200px, 24vw);
+}
+
+.closing__line--accent {
+  color: var(--accent);
+}
+
+.closing__cta {
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-left: min(200px, 24vw);
+}
+
+/* Resources */
+.closing__resources {
+  margin-top: clamp(44px, 6vw, 80px);
+}
+
+.closing__restitle {
+  font-size: clamp(18px, 3vw, 26px);
+}
+
+.closing__restext {
+  margin: 16px 0 0;
+  max-width: 460px;
+  color: var(--body-gray);
+  font-size: clamp(14px, 1.6vw, 17px);
+  line-height: 1.7;
+}
+
+.closing__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+  margin-top: 28px;
+}
+
+.closing__deck {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: clamp(12px, 1.6vw, 14px);
+  color: var(--heading);
+  border-bottom: 1px solid rgba(43, 48, 51, 0.3);
+  padding-bottom: 3px;
+}
+
+.closing__deck:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 /* ============================================================
    Responsive — mobile (<= 700px)
    ============================================================ */
